@@ -10,7 +10,7 @@ class Song
 
   def self.create
     song = self.new
-    @@all << song
+    song.save
     song
   end
 
@@ -20,7 +20,7 @@ class Song
 
   def self.create_by_name (name)
     song = self.new_by_name (name)
-    @@all << song
+    song.save
     song
   end
 
@@ -44,7 +44,7 @@ class Song
 
   def self.create_from_filename (filename)
     song = self.new_from_filename (filename)
-    @@all << song
+    song.save
     song
   end
 
