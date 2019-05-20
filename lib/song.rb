@@ -19,14 +19,16 @@ class Song
   end
 
   def self.new_by_name(song_name) #<- argument/parameters
-  #class constructor   
-  
-  #take in the string name of a song
   song = self.new 
-  song.name = song_name #song.name is the part of the instance I want. song_name is my parameter 
-  
-    song #returns song 
+  song.name = song_name
+  song 
   end 
+  #INSTRUCTIONS FOR CLASS CONSTRUCTOR
+  #song = self.new is constructing/creating a new song. 
+  #song.name is the part of the instance I want. 
+  #song_name is my parameter 
+  #returns song 
+  
   
   
   def self.create_by_name(song_name) #class constructor
@@ -37,5 +39,28 @@ class Song
   song #returns song
   end
   
+  def self.find_by_name(song_name) #class finder with parameter
+    self.all.find {|song| song.name == song_name} 
+  end 
+    #INSTRUCTIONS FOR CLASS FINDER 
+    #self.all goes through my entire list/array
+    #find is the method to find the parameters 
+    #|song| is the singular item of my list that Im look for
+    #song.name == song_name is the specificaions/condition for the singular item parameters
   
+  
+  def self.find_or_create_by_name(song_name) #class method with parameter
+    self.find_by_name(song_name) || self.create_by_name(song_name)
+    #took the two methods from before and using the || (or) condition
+   end
+
+ 
+  def self.alphabetical #class method 
+    self.all.sort_by{|song| song.name}
+  end
+
+  def self.new_from_filename
+  
+  end 
+
 end
