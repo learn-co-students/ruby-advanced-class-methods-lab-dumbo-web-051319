@@ -59,8 +59,14 @@ class Song
     self.all.sort_by{|song| song.name}
   end
 
-  def self.new_from_filename
-  
+  def self.new_from_filename(filename) #class constructor
+    filename.split("-")
+    
+    #would I be able to just use the methods from above?
+    song = self.new #Song.create 
+    song.name = song_name #Song.new_by_name
+    song.artist_name = artist_name 
+    song
   end 
-
+  
 end
